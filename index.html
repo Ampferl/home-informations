@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<title>Audi Home Informations</title>
+
+	<style>
+		div.main {
+			width: 50%;
+			margin: auto;
+			display: block;
+			padding: 5px;
+			text-align: center;
+			font-family: "Audi Type", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif"
+		}
+		table {
+			border: 1px solid black;
+			width: 100%;
+			color: blue;
+			cursor: pointer;
+			font-size: 10px;
+
+		}
+		div.info_text_box{
+			text-align: left;
+			font-size: 13px;
+		}
+		h2 {
+			font-family: "Audi Type Extended", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif"
+			font-size: 18px;
+		}
+		h2:hover {
+			color: #dd0612;
+		}
+		a {
+			color: black;
+			text-decoration: none;
+		}
+
+a:hover{
+  text-decoration: none;
+  color: #951522;
+}
+
+
+	.close-design {
+	  color: #aaaaaa;
+	  float: right;
+	  font-size: 28px;
+	  font-weight: bold;
+	}
+	.close:hover,
+	.close:focus {
+	  color: #000;
+	  text-decoration: none;
+	  cursor: pointer;
+	}
+	.logo-file{
+	position:absolute;
+	margin-top:-1px;
+	margin-left:3px;
+	}
+	</style>
+
+	<script type="text/javascript" src="config.json"></script>
+</head>
+<body>
+	<script>
+	var audi_icon = '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAYCAYAAADzoH0MAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wECw0cN927PDQAAAEeSURBVDjLrZTbcYMwEEWPqIASSAfMSAWEDpwOoIPQgV2B0wF0QDogBUhjSkgJ7kD5WWJs9JiMs5+S7tHd1a6URV+Amvu4Ao32diETBfAmgm2UwOyUqbIA7e23QAhAJqdMmXOA9vYL6AP7tTgpkwCBfABjBHLOAiR6IFS41ikzZAHa2yvQBYq6Qo6Pi8p7vzvplDkAU8R1p70dYymsTj6BUwQwOGXapIONkwk4BLZ+Gy0HKIELUMUgSYBAamCWxtpBCp6Mp1PIORhSYu3tUiRuP0ZeAKBfR/3/G0mqPkTEp61450CKNgd+KIBRe9vlpvH8F/EdwCnzDrSBM0vks7ml4JR5FeshcSNjHgZYdCXNUgbe+iUlXlOYIuImJwb4AXkjgq7Lz4B1AAAAAElFTkSuQmCC" height="10px" alt="Audi Pfeil">';
+	var word_icon = '<img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Microsoft_Word_logo.png" height="20px" alt="Word Logo" class="">';
+	var excel_icon = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Microsoft_Excel_Logo.svg/2000px-Microsoft_Excel_Logo.svg.png" height="20px" alt="Excel Logo" class="">';
+	var powerpoint_icon = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Microsoft_PowerPoint_2013_logo.svg/2000px-Microsoft_PowerPoint_2013_logo.svg.png" height="20px" alt="PowerPoint Logo" class="">';
+	var pdf_icon = '<img src="https://cdn0.iconfinder.com/data/icons/flat-file-format/100/pdf-512.png" height="20px" alt="PDF Logo" class="pdf file icon">';
+</script>
+
+	<div class="main">
+		<img alt="AUDI AG Logo" src="data:image/png;base64,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" style="float:right; margin: 40px 0px 20px 0px;">
+		<div class="selection_box">
+			<table>
+			<tr>
+				<td><a href="https://portal.epp.audi.vwg/wps/myportal" target="_blank">MyNet</a></td>
+				<td><a></a></td>
+				<td><a href="#exampleModal" data-toggle="modal" data-target="#exampleModal">Settings</a></td>
+				<td><a href="" target="_blank"></a><td>
+			</tr>
+			</table>
+
+		</div>
+		<h2>Home</h2>
+		<div class="info_text_box">
+
+
+
+
+				<script language="javascript" type="text/javascript">
+				//Write Headings
+				if(!data){
+				  var data = {"Audi":{"Github":"http://github.com/AudiAG","Website":"http://audi.de"},"Links":{"AVS":"http://avs.audi"},"Docs":{"pdf 1":"pdf1.pdf"}};
+				}
+
+				for(obj of Object.keys(data)){
+				  document.write("<h4>"+obj+"</h4>");
+				  for(obj2 of Object.keys(data[obj])){
+// Find Files
+if(data[obj][obj2].includes(".pdf")){
+  var icon = pdf_icon + " ";
+}else if(data[obj][obj2].includes(".pptx") || data[obj][obj2].includes(".ppt")){
+  var icon = powerpoint_icon + " ";
+}else if(data[obj][obj2].includes(".docx") || data[obj][obj2].includes(".doc")){
+  var icon = word_icon + " ";
+}else if(data[obj][obj2].includes(".xlsx") || data[obj][obj2].includes(".xls")){
+  var icon = excel_icon + " ";
+}else{
+  var icon = "";
+}
+// ENd Find Files
+
+				    document.write("<a href='" + data[obj][obj2] + "' class='show-cat'>" + audi_icon + " " + icon + obj2 + "</a><br>");
+				  }
+				}
+				</script>
+
+
+		</div>
+
+	</div>
+	<div class="footer" align="center">
+	&copy; <span id="year">2018</span> Audi
+	</div>
+
+	<div id="settings">
+	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h5 class="modal-title" id="settings">Einstellungen</h5>
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	            <span aria-hidden="true">&times;</span>
+	          </button>
+	        </div>
+	        <div class="modal-body">
+
+	            <div class="form-group">
+	              <label for="createcat"></label>
+	              <input type="text" class="form-control" id="createcat" placeholder="Kategorie Namen">
+
+	            </div>
+	            <button onclick="addcat()" class="btn btn-primary" style="background-color:#951522; border-color: white;">Hinzufügen</button>
+
+	            <div id="categories">
+
+	            </div>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+	          <button onclick="downloadjson()" class="btn btn-primary" style="background-color:#951522; border-color: white;">Änderungen Herunterladen</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <br>
+	  <a id="downloadAnchorElem" style="display:none;">Download</a><br><center>
+	  <script language="javascript" type="text/javascript">
+	  var json_obj = [];
+	  var item = {};
+	    function addcat() {
+	      var cat = document.getElementById("createcat").value;
+	      var cat2 = '"'+cat+'"';
+	      var htmlcatcode = '<hr><div class="cat-' + cat + '"><h4>' + cat + '</h4><div class="container"><div class="row"><input type="text" class="form-control col-4" id="createsubcatname-'+cat+'" placeholder="Name"><input type="text" class="form-control col-8" id="createsubcatlink-'+cat+'" placeholder="Link" value="http://"></div></div><br><button onclick="addsubcat(\''+cat+'\')" class="btn btn-primary" style="background-color:#951522; border-color: white;">Hinzufügen</button><br><hr><div id="subcats-' + cat + '"></div></div><br>';
+	      document.getElementById("categories").innerHTML += htmlcatcode;
+
+	      item[cat] = {};
+	    }
+
+
+	  function addsubcat(catname){
+	    var subcatname = document.getElementById("createsubcatname-"+catname).value;
+	    var subcatlink = document.getElementById("createsubcatlink-"+catname).value;
+	    var htmlcat2code = "<a href='"+subcatlink+"'>"+subcatname+"</a><br>";
+	    document.getElementById("subcats-"+catname).innerHTML += htmlcat2code;
+
+	    item[catname][subcatname] = subcatlink;
+	  }
+
+	  </script></center>
+
+	  <script>
+	  function downloadjson() {
+
+	      json_obj.push(item);
+	      console.log(json_obj);
+	      var data1 = "data = ";
+	      var data2 = ";";
+	      var result = JSON.stringify(json_obj);
+	      result = result.replace("[", "");
+	      result = result.replace("]", "");
+	      var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(data1 + result + data2);
+	      var dlAnchorElem = document.getElementById('downloadAnchorElem');
+	      dlAnchorElem.setAttribute("href",     dataStr     );
+	      dlAnchorElem.setAttribute("download", "config.json");
+	      dlAnchorElem.click();
+	    }
+
+	  </script>
+	</div>
+
+	<script>document.getElementById("year").innerHTML = new Date().getFullYear();</script>
+</body>
+</html>
